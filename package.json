@@ -1,0 +1,49 @@
+{
+  "name": "cypress-cucumber-automation-framework",
+  "version": "1.0.0",
+  "description": "Cypress Automation Framework using Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "full-regression-headed-chrome": "npx cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature' ",
+    "full-regression-tags-headed-chrome": "npx cypress run -e TAGS='@regression' --headed --browser chrome ",
+    "full-regression-headless-chrome": "npx cypress run --browser chrome --spec 'cypress/e2e/*.feature' ",
+    "contact-us-tests-headed-chrome": "npx cypress run --browser chrome --spec 'cypress/e2e/Contact_Us.feature' ",
+    "contact-us-tests-headed": "cypress run -e TAGS='@contact-us' --headed ",
+    "contact-us-tests-headless": "cypress run -e TAGS='@contact-us' ",
+    "login-tests-headed": "cypress run -e TAGS='@login' --headed && node cucumber-html-report.js ",
+    "login-and-smoke-pack": "cypress run -e TAGS='@smoke or @login' --headed",
+    "smoke-pack-headed": "cypress run -e TAGS='@smoke' --headed",
+    "regression-pack-headed": "cypress run -e TAGS='@regression and not @smoke' --headed && node cucumber-html-report.js "
+  },
+  "author": "Santiago Bernal",
+  "license": "ISC",
+  "dependencies": {
+    "npx": "^10.2.2"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^12.5.0",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.3.0",
+    "ts-loader": "^9.4.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-html/cucumber-report.html"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-ndjson/cucumber-report.ndjson"
+    },
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/cucumber-json/cucumber-report.json"
+    }
+  }
+}
