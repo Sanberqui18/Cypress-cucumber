@@ -43,7 +43,7 @@
       "output": "cypress/reports/cucumber-ndjson/cucumber-report.ndjson"
     },
     "json": {
-      "enabled": true,
+      "enabled": false,
       "formatter": "cucumber-json-formatter",
       "output": "cypress/reports/cucumber-json/cucumber-report.json"
     }
