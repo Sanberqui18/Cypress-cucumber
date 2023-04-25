@@ -20,7 +20,8 @@
   "author": "Santiago Bernal",
   "license": "ISC",
   "dependencies": {
-    "npx": "^10.2.2"
+    "npx": "^10.2.2",
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
